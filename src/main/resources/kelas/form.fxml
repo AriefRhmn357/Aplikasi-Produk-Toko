@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kelas.controller.FormController"
+            stylesheets="@styles/app.css">
+    <top>
+        <HBox spacing="16" styleClass="header" alignment="CENTER_LEFT">
+            <Label text="Manajemen Produk Toko" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="📋 Lihat Daftar Produk" onAction="#bukaDaftar"/>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox spacing="16" styleClass="page" alignment="TOP_CENTER">
+                    <VBox spacing="14" styleClass="card" maxWidth="560">
+                        <Label text="Tambah Produk Baru" styleClass="subtitle"/>
+                        <Label text="Lengkapi informasi produk makanan atau minuman di bawah ini." styleClass="muted"/>
+                        <Separator/>
+
+                        <Label text="Nama Produk"/>
+                        <TextField fx:id="namaField" promptText="Contoh: Kopi Susu Gula Aren"/>
+
+                        <Label text="Kategori Produk"/>
+                        <ComboBox fx:id="jenisBox" maxWidth="Infinity"/>
+
+                        <Label text="Harga Produk (Rp)"/>
+                        <TextField fx:id="jumlahField" promptText="Contoh: 18000"/>
+
+                        <Label text="Foto Produk (Opsional)"/>
+                        <HBox spacing="14" alignment="CENTER_LEFT">
+                            <Button text="📁 Pilih Gambar..." onAction="#pilihGambar"/>
+                            <Label text="Format PNG/JPEG, maks. 5 MB (file lokal)." wrapText="true" styleClass="muted"/>
+                        </HBox>
+                        <ImageView fx:id="gambarView" fitWidth="280" fitHeight="170" preserveRatio="true"/>
+
+                        <Separator/>
+                        <Button text="💾 Simpan dan Lihat Detail" onAction="#simpan"
+                                styleClass="button-primary" maxWidth="Infinity"/>
+                        <Label fx:id="pesanLabel" wrapText="true" styleClass="error"/>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

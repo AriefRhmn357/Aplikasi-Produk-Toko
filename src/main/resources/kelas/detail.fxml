@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kelas.controller.DetailController"
+            stylesheets="@styles/app.css">
+    <top>
+        <HBox styleClass="header" spacing="16" alignment="CENTER_LEFT">
+            <Label text="📄 Detail Informasi Produk" styleClass="title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="⬅ Kembali ke Daftar" onAction="#bukaDaftar"/>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox styleClass="page" spacing="16" alignment="TOP_CENTER">
+                    <VBox styleClass="card" spacing="12" maxWidth="560">
+                        <Label text="KODE PRODUK" styleClass="muted"/>
+                        <Label fx:id="kodeLabel" styleClass="subtitle"/>
+                        <Separator/>
+
+                        <Label text="NAMA PRODUK" styleClass="muted"/>
+                        <Label fx:id="namaLabel" styleClass="subtitle" wrapText="true"/>
+
+                        <Label text="KATEGORI" styleClass="muted"/>
+                        <Label fx:id="jenisLabel"/>
+
+                        <Label text="HARGA SATUAN" styleClass="muted"/>
+                        <Label fx:id="totalLabel" styleClass="title"/>
+                        <Separator/>
+
+                        <Label text="FOTO PRODUK" styleClass="muted"/>
+                        <ImageView fx:id="gambarView" fitWidth="340" fitHeight="220" preserveRatio="true"/>
+                        <Label fx:id="pesanLabel" wrapText="true" styleClass="muted"/>
+
+                        <HBox spacing="12" style="-fx-padding: 8 0 0 0;">
+                            <Button text="+ Tambah Produk Lain" onAction="#tambahLagi" styleClass="button-primary"/>
+                            <Button text="Lihat Semua Produk" onAction="#bukaDaftar"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

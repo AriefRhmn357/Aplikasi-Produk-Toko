@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="kelas.controller.DaftarController"
+            stylesheets="@styles/app.css">
+    <top>
+        <VBox spacing="14" styleClass="header">
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Label text="📦 Daftar Produk Toko" styleClass="title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="+ Tambah Produk" onAction="#tambah" styleClass="button-primary"/>
+            </HBox>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="cariField" promptText="🔍 Cari nama atau kode produk..."
+                           onAction="#cari" HBox.hgrow="ALWAYS"/>
+                <ComboBox fx:id="filterJenisBox" prefWidth="160"/>
+                <Button text="Cari" onAction="#cari" styleClass="button-primary"/>
+                <Button text="Reset" onAction="#resetPencarian"/>
+            </HBox>
+            <FlowPane hgap="12" vgap="8" alignment="CENTER_LEFT">
+                <Button text="Lihat Detail" onAction="#detail"/>
+                <Button text="Hapus Produk" onAction="#hapus" styleClass="button-danger"/>
+                <CheckBox fx:id="totalCheck" text="Tampilkan Kolom Harga" selected="true"
+                          onAction="#ubahTampilanTotal"/>
+            </FlowPane>
+        </VBox>
+    </top>
+    <center>
+        <VBox styleClass="page" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tabel" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="kodeCol" text="Kode Produk" prefWidth="130"/>
+                    <TableColumn fx:id="namaCol" text="Nama Produk" prefWidth="280"/>
+                    <TableColumn fx:id="jenisCol" text="Kategori" prefWidth="180"/>
+                    <TableColumn fx:id="totalCol" text="Harga (Rp)" prefWidth="180"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox style="-fx-padding: 0 28 16 28;">
+            <Label fx:id="pesanLabel" wrapText="true" styleClass="muted"/>
+        </HBox>
+    </bottom>
+</BorderPane>
